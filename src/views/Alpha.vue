@@ -3,7 +3,7 @@
     <a-modal v-model="showDialog" title="Edgeless Alpha" @ok="submitToken" @cancel="$router.back()" okText="提交"
              cancelText="取消">
       <p>如果您不知道如何获取邀请码，我们也无可奉告，因为这说明您不是Edgeless Alpha内测计划的目标用户</p>
-      <a-input placeholder="输入Edgeless Alpha内测邀请码" v-model="input"/>
+      <a-input placeholder="输入Edgeless Alpha内测邀请码" v-model="input" />
     </a-modal>
 
     <a-steps :current="stepBarNumber">
