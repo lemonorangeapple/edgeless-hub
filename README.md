@@ -21,3 +21,14 @@
 yarn
 yarn electron:serve
 ```
+
+<details>
+<summary>
+  
+## 官方认证
+
+</summary>
+
+![](https://dl.imjcj.eu.org/image/976e56c945b87407f0ab864e0c309653c6aa4df3231737ea704b2b8e0c0555db.png)
+
+</details>
