@@ -16,9 +16,10 @@
   "dependencies": {
     "ant-design-vue": "^1.7.2",
     "axios": "^0.21.0",
+    "babel": "^6.23.0",
     "caniuse-lite": "^1.0.30001269",
     "core-js": "^3.6.5",
-    "electron": "^11.3.0",
+    "electron": "^28.1.4",
     "iconv-lite": "^0.6.3",
     "json-rpc2": "^2.0.0",
     "node-7zip": "^1.0.1",

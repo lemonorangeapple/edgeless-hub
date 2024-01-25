@@ -4,7 +4,6 @@ import {app, protocol, BrowserWindow, ipcMain, dialog, Menu, shell} from 'electr
 import {createProtocol} from 'vue-cli-plugin-electron-builder/lib'
 import cp from 'child_process'
 import vp from '@/utils/what-did-ventoy-do'
-import path from 'path'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const fs = require('fs')
@@ -32,11 +31,10 @@ async function createWindow() {
             // Use pluginOptions.nodeIntegration, leave this alone
             // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
             nodeIntegration: true,
+            contextIsolation: false,
             nodeIntegrationInWorker: true,
             webSecurity: false,
             webviewTag: true,
-            contextIsolation: false,
-            enableRemoteModule: true,
             preload: 'preload.js'
         },
         icon: "./core/favicon.ico"

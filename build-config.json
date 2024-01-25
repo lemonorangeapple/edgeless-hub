@@ -6,5 +6,11 @@
   },
   "directories": {
     "app": "./dist_electron/bundled"
-  }
+  },
+  "extraResources": [
+    {
+      "from": "./core",
+      "to": "../core"
+    }
+  ]
 }
