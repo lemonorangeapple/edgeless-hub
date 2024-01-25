@@ -2,7 +2,7 @@
   <a-list item-layout="horizontal" :data-source="data">
     <a-list-item slot="renderItem" slot-scope="item, index_wait" :key="item.name">
       <template>
-        <!--第一个按钮（可选）-->
+        <!--第一个按钮(可选）-->
         <a-icon v-if="index==='0'" :type="loading?'loading':'pause-circle'" slot="actions"
                 v-on:click="unPauseOrPause(item.gid)"/>
         <a-icon v-else-if="index==='1'" :type="loading?'loading':'play-circle'" slot="actions"
@@ -11,13 +11,12 @@
                 v-on:click="reStart(item.gid)"/>
         <a-icon v-else-if="index==='12'" :type="loading?'loading':'cloud-download'" slot="actions"
                 v-on:click="update(item)"/>
-        <!--第二个按钮（删除）-->
+        <!--第二个按钮(删除）-->
         <a-icon v-if="index==='11'||index==='12'" type="close-circle" slot="actions" v-on:click="deleteFile(item)"/>
         <a-icon v-else-if="index==='13'&&(index_wait!==0||!runningCopy)" :type="loading?'loading':'close-circle'"
                 slot="actions" v-on:click="reMoveCopyTask(item.gid)"/>
         <a-icon v-else-if="index!=='10'&&index!=='13'" :type="loading?'loading':'close-circle'" slot="actions"
                 v-on:click="reMoveTask(item.gid)"/>
-
         <a-list-item-meta>
           <div slot="title">{{ item.name }}</div>
 
@@ -151,7 +150,8 @@ export default {
     },
     deleteFile(item) {
       //移动文件至回收站
-      let ret = this.$electron.shell.moveItemToTrash(this.$store.state.pluginPath + "\\" + item.trueName)
+      const { ipcRenderer } = window.require('electron')
+      let ret = ipcRenderer.send('TrashItem', this.$store.state.pluginPath + "\\" + item.trueName)
       if (ret) {
         notification.open({
           message: '删除插件成功',
