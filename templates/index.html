@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edgeless Hub</title>
+        <link rel="stylesheet" href="../static/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="card m-3 p-3">
+            <center>
+                <h2>Edgeless Hub后续更新下载站</h2>
+            </center>
+        </div>
+        {% for i in res %}
+            <div class="card m-3 p-3">
+                <h3 class="card-title">{{ i['tag_name'] }}</h3>
+                {{ markdown(i['body']) | safe }}
+                <div class="download">
+                    {% for j in i['assets'] %}
+                        <a class="btn btn-outline-primary" href="{{ j['browser_download_url'] }}">{{ j['name'] }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </body>
+</html>
