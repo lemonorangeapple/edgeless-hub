@@ -16,7 +16,7 @@
                 {{ markdown(i['body']) | safe }}
                 <div class="download">
                     {% for j in i['assets'] %}
-                        <a class="btn btn-outline-primary" href="{{ j['browser_download_url'] }}">{{ j['name'] }}</a>
+                        <a class="btn btn-outline-primary" href="https://gh.imjcj.eu.org/{{ j['browser_download_url'] }}">{{ j['name'] }}</a>
                     {% endfor %}
                 </div>
             </div>
