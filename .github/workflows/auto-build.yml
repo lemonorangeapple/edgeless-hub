@@ -16,7 +16,8 @@ jobs:
           npm config set -g strict-ssl false
           npm install -g yarn
           yarn config set "strict-ssl" false -g
-          yarn
+          yarn config set registry http://registry.npm.taobao.org/
+          yarn install
           yarn electron:build
       - uses: actions/upload-artifact@v4.3.0
         with:
