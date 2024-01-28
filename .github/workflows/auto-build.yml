@@ -1,4 +1,4 @@
-name: Automation Build
+name: Automation Build and Release
 
 on:
   push:
@@ -10,19 +10,26 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Install Nodejs
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: |
-          npm config set -g strict-ssl false
-          npm install -g yarn
+      - name: Build
+        run: |
           yarn config set "strict-ssl" false -g
-          yarn config set registry http://registry.npm.taobao.org/
           yarn install
           yarn electron:build
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - uses: actions/upload-artifact@v4.3.0
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4.3.0
         with:
           name: 'installer.exe'
           path: 'dist/*.exe'
+      - name: Upload release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: "dist/*.exe"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
