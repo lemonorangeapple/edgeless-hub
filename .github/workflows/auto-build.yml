@@ -20,7 +20,7 @@ jobs:
           yarn config set "strict-ssl" false -g
           yarn install
           yarn electron:build
-          "autobuild/7z.exe" a edgeless-hub_${{ github.ref }}.zip dist/win-unpacked/*
+          cmd.exe /c "autobuild/7z.exe" a edgeless-hub_${{ github.event.release.tag_name }}.zip dist/win-unpacked/*
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Upload release
