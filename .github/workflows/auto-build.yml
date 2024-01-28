@@ -13,8 +13,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - run: |
           npm config set -g strict-ssl false
           npm install -g yarn
@@ -22,6 +20,8 @@ jobs:
           yarn config set registry http://registry.npm.taobao.org/
           yarn install
           yarn electron:build
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - uses: actions/upload-artifact@v4.3.0
         with:
           name: 'installer.exe'
