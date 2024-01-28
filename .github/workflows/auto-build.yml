@@ -2,7 +2,6 @@ name: Automation Build and Release
 
 on:
   push:
-    branches: ["master"]
     tags:
       - "*"
   workflow_dispatch:
