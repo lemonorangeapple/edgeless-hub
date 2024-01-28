@@ -20,13 +20,9 @@ jobs:
           yarn config set "strict-ssl" false -g
           yarn install
           yarn electron:build
+          "autobuild/7z.exe" a edgeless-hub_${{ github.ref }}.zip dist/win-unpacked/*
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4.3.0
-        with:
-          name: 'installer.exe'
-          path: 'dist/*.exe'
       - name: Upload release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
