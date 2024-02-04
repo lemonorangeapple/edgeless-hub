@@ -1,5 +1,7 @@
 # Edgeless Hub
 
+[![Automation Build and Release](https://github.com/lemonorangeapple/edgeless-hub/actions/workflows/auto-build.yml/badge.svg?event=push)](https://github.com/lemonorangeapple/edgeless-hub/actions/workflows/auto-build.yml)
+
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Electron.js](https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white)
 ![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)
